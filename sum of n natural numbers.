@@ -1,0 +1,24 @@
+#include <iostream>
+using namespace std;
+
+int sum (int n)
+{
+  if(n==1)  //base case
+  {
+    return 1;
+  }
+  else{
+    
+  int partialAns =  n+ sum(n-1);
+   return partialAns;
+
+    }
+}
+int main() {
+  cout << "Sum of n natural numbers using recursion "<<endl;
+int n;
+cout<< "enter the value of n ";
+  cin>>n;
+  int ans1 = sum(n) ;
+cout<< ans1;  
+}
