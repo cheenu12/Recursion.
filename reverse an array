@@ -1,0 +1,42 @@
+//selection sort using recursion
+#include <iostream>
+using namespace std;
+
+
+void  swap (int *a , int *b)
+{
+
+  int temp = *a ;
+  *a = *b ;
+  *b= temp;
+  
+  
+}
+
+void reverse(int arr[] , int l , int n)
+{
+if ( l>=n )   return ;
+
+ 
+  swap(&arr[l], &arr[n]);
+
+ reverse (arr , l+1 , n-1);
+ 
+}
+  
+
+void printarr(int arr[] , int n)
+{
+
+  for(int i=0; i<n ; i++)
+    {
+      cout<<arr[i]<<endl;
+    }
+}
+int main(void)
+{
+	int arr[] = { 1,424,23,2,4,42,4,323,32,67 };
+	int n = sizeof(arr) / sizeof(arr[0]);
+ reverse(arr,0, n-1);
+   printarr(arr,n);
+}
