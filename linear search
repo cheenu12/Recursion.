@@ -1,0 +1,39 @@
+// C++ program to implement recursive Binary Search
+#include <iostream>
+using namespace std;
+
+int linearSearch(int arr[] , int x , int i , int n)
+{
+  if(i >=n)
+  {
+    cout<<"element not present"<<endl;
+    return -1;
+  }
+  if (x == arr[i] )
+    return  i ;
+
+  else
+  {
+  return linearSearch( arr,  x,  i+1 , n);
+  }
+  
+}
+
+int main(void)
+{
+	int arr[] = { 2, 3, 4, 10, 40 };
+	int x = 2;
+	int n = sizeof(arr) / sizeof(arr[0]);
+  int i =0 ;
+  
+	int result = linearSearch(arr, x , i ,n);
+  if(result != -1)
+  {
+     
+cout<< "indexx "<< result;
+    }
+  
+  
+
+	return 0;
+}
