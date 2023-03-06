@@ -1,0 +1,30 @@
+#include <iostream>
+using namespace std;
+
+int fibo (int n)
+{
+if (n <= 2)                //because 1st, 2nd term is are always 1 
+{
+  return 1; 
+}
+
+  else
+{
+  int first = fibo(n-2);                //here 2 recursive relations are there
+  int secound = fibo(n-1);
+  int ans = first  +  secound ;              
+
+  return ans ;
+  }
+}
+
+
+int main() {
+  int n ;
+cout<< "find the nth number in fibonacci series" <<endl;
+cout<<"enter the nth value "<<endl;
+cin >>n;
+
+  int ans = fibo (n);
+  return ans;
+}
