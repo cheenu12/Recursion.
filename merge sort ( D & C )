@@ -1,0 +1,102 @@
+#include<iostream>
+using namespace std;
+
+void merge (int arr[] , int start ,  int mid ,  int last )
+{
+
+int left = mid - start +1;  // for left elements
+  int right = last - mid ;   //right
+  int temp1[left] ;   //temporary  arrays to compare
+  int temp2[right] ;   
+  
+  for(int i =0 ;i < left ; i++)
+    {
+       temp1[i] = arr[start+i];     //items inserted in 2 arrays
+    }
+    for(int j =0 ;j < right ; j++)
+    {
+       temp2[j] = arr[mid + 1 + j]; 
+    }
+
+// now check   
+  int k =start ;
+  int loop1 =0 ;
+  int loop2= 0 ;
+
+while ( loop1 < left && loop2 < right )  //jab tak dono array bhare huye hai
+                            // agar ik bhi empty huya toh condition fails
+    {
+  if(temp1[loop1] <= temp2[loop2] )
+  {
+  arr[k] = temp1[loop1];
+  loop1++;
+    }
+  else
+  {
+    arr[k] = temp2[loop2];
+    loop2++;
+  }
+
+  k++;
+  
+      }
+  // When we run out of elements in either Left or right,
+  // pick up the remaining elements and put in arr[k]
+
+  while ( loop1 < left )
+    {
+      arr[k] = temp1[loop1];
+      k++;
+      loop1++;
+    }
+  while ( loop2 < right) 
+{
+  arr[k] = temp2[loop2];
+  k++;
+  loop2++;
+}
+
+  }   
+
+ void mergeSort(int arr[], int start, int size)
+{
+
+  if(start < size )
+  {
+    // mid is the point where the array is divided into two subarrays
+int mid = start + (size - start) / 2 ;
+
+    mergeSort(arr, start , mid);   //left side
+     // yaha start = mid hogya mtlb sare left wale elements alag alag divide hogye //so ye funnction ab nhi chlega  
+    mergeSort(arr, mid+1 ,size);    //right side
+     
+//now all elemets are seprated out
+    merge ( arr , start ,  mid , size);
+  }
+  
+}
+
+
+// print an array
+void printArray(int arr[], int size) {
+  for (int i = 0; i < size; i++)
+    cout << arr[i] << " ";
+  cout << endl;
+}
+
+//main driver code
+int main()
+{
+int arr[] = {6, 5, 12, 10, 9, 1};
+  int size = sizeof(arr) / sizeof(arr[0]);
+
+   cout << "unSorted array: \n";
+  printArray(arr, size);
+  mergeSort(arr, 0, size - 1);
+
+  cout << "Sorted array: \n";
+
+  printArray(arr, size);
+  return 0;
+  
+}
