@@ -1,0 +1,22 @@
+#include<iostream>
+using namespace std;
+
+int findsum( int arr[] , int n )
+{
+  
+if(n==0 )
+{
+  return 0;
+}
+  int sum = arr[0] + findsum(arr+1, n-1 )  ;
+return sum;
+  
+}
+int main()
+{
+  int arr[] = { 12, 11, 13, 5, 6, 7 };
+    int N = sizeof(arr) / sizeof(arr[0]);
+
+  cout<<findsum(arr, N );
+
+  }
