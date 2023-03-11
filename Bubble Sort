@@ -1,0 +1,48 @@
+#include <iostream>
+using namespace std;
+
+void swap(int *x, int *y)
+
+{
+  int temp = *x;
+  *x = *y;
+  *y = temp;
+}
+ void Bubblesort(int *arr , int size )
+{
+
+  if(size==0 || size == 1)
+  {
+    return  ;
+  }
+//now the largest element is at its right position 
+  for(int i =0 ; i<size ; i++)
+    {
+      if(arr[i] > arr[i+1])
+        swap(arr[i] , arr[i+1]); 
+    }
+//baki recursion sambhal lega/
+  Bubblesort(arr, size-1);
+  
+}
+
+void printarr(int arr[] , int size)
+{
+
+  for(int i =0; i<=size ; i++)
+    {
+
+      cout<< arr[i] << "  ";
+    }
+  cout<<endl;
+}
+int main() 
+{
+
+
+  int arr[] = {9,12,1,7,88,55,43};
+  int size = sizeof(arr) / sizeof(arr[0]);
+  cout<< "size of an array is : "<<size <<endl; 
+Bubblesort(arr, size-1);
+  printarr(arr , size-1);
+  }
