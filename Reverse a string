@@ -1,0 +1,30 @@
+#include <iostream>
+using namespace std;
+
+void swap(char *x, char *y)
+
+{
+  char temp = *x;
+  *x = *y;
+  *y = temp;
+}
+void reverse(string &s, int size, int start) {
+
+
+  if (start > size) {
+    return;
+  }
+  swap(&s[start], &s[size]);
+
+  reverse(s, size-1 , start+1 );
+}
+
+int main() {
+  string s = "spu";
+  int size = s.length() ;
+  int start = 0;
+  cout << "size of the string " << size << endl;
+  reverse(s, size-1, 0);
+
+  cout << s;
+}
