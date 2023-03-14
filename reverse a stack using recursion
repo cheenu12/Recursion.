@@ -1,0 +1,45 @@
+//gfg : https://practice.geeksforgeeks.org/problems/reverse-a-stack/1
+
+
+class Solution{
+public:
+
+void insertAtBottom(stack<int> &s3 , int element)
+{
+
+  stack<int> a ;
+
+ while(!s3.empty())      //purane stack ko khali karlya
+    {
+      int c= s3.top();
+      a.push(c);
+        s3.pop();
+    }
+
+ 
+  a.push(element); //pushing the element  (at first of duplicate array)
+                  //so that it will come at last.
+
+ while(!a.empty())    //duplicate array ko purane wale me copy krlya  
+    {
+      int f= a.top();
+      s3.push(f);
+      a.pop();
+    }
+
+
+}
+    void Reverse(stack<int> &St){
+        
+    if(St.empty())
+    {
+        return;
+    }
+
+    int num = St.top();
+St.pop();
+Reverse(St);
+
+insertAtBottom(St , num);  //jo top pr hai use bootom me insert krdiya
+    }
+};
