@@ -1,0 +1,38 @@
+#include <iostream>                          
+#include <vector>
+using namespace std;
+
+void subse(int index , int ar[] , vector<int>&arr2 , int n)
+{
+if(index == n)
+{
+  for(auto in : arr2)        //printing the elements present in the vector
+    {
+      cout<< in << " ";
+    }
+
+  if(arr2.size() == 0)
+  {
+    cout<<"{}";   //to empty print 
+  }
+  cout<<endl;
+  return;
+}
+    subse(index + 1, ar, arr2,n);  //not take
+  arr2.push_back(ar[index]);
+  subse(index + 1, ar, arr2,n);      //take
+  arr2.pop_back();
+  
+
+  
+}
+int main() {
+  int arr[]= {3,1,2,};
+  int size = sizeof(arr) / sizeof(arr[0]);
+
+  vector<int>arr2;
+  int n=0;
+subse(n,arr,arr2,size);
+
+  
+}
